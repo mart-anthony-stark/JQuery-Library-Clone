@@ -1,0 +1,13 @@
+{
+  "name": "query-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc src/queryLib --outFile bundle.js --watch --sourceMap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

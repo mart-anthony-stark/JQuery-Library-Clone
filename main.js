@@ -17,4 +17,11 @@ $(() => {
     margin: "20px",
     "margin-top": "50px",
   });
+  $("button.toggle").on("click", (e) => {
+    $(".box").hide();
+
+    setTimeout(() => {
+      $(".box").show();
+    }, 2000);
+  });
 });

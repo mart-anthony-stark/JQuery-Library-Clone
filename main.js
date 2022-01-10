@@ -17,11 +17,15 @@ $(() => {
     margin: "20px",
     "margin-top": "50px",
   });
-  $("button.toggle").on("click", (e) => {
-    $(".box").hide();
-
-    setTimeout(() => {
-      $(".box").show();
-    }, 2000);
+  $("button.toggle").on("click", (e) => {});
+  $("h3.error").css({
+    cursor: "pointer",
+    textAlign: "center",
+  });
+  $("h3.error").on("click", () => {
+    $("h3.error").toggleClass("warning");
+  });
+  $(".box").on("click", (e) => {
+    $(".box").slideUp();
   });
 });

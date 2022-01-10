@@ -4,8 +4,8 @@ const $ = (arg: string | CallableFunction) => {
       elements: document.querySelectorAll(arg),
       on: (e, cb) => {
         instance.elements.forEach((element) => {
-          element.addEventListener(e, () => {
-            cb(element);
+          element.addEventListener(e, (event: Event) => {
+            cb(event);
           });
         });
 
@@ -51,6 +51,25 @@ const $ = (arg: string | CallableFunction) => {
 
         return instance;
       },
+      hide: (duration = 1, easing = "ease-in-out", delay = 1) => {
+        instance.elements.forEach((el) => {
+          (
+            el as HTMLElement
+          ).style.transition = `${duration}s ${easing} ${delay}s`;
+          (el as HTMLElement).style.display = "none";
+          (el as HTMLElement).style.opacity = "0";
+        });
+      },
+      show: (duration = 1, easing = "ease-in-out", delay = 1) => {
+        instance.elements.forEach((el) => {
+          (
+            el as HTMLElement
+          ).style.transition = `${duration}s ${easing} ${delay}s`;
+          (el as HTMLElement).style.display = "block";
+          (el as HTMLElement).style.opacity = "1";
+        });
+      },
+      toggleClass: () => {},
     };
 
     return instance;

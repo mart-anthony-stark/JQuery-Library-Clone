@@ -4,8 +4,8 @@ var $ = function (arg) {
             elements: document.querySelectorAll(arg),
             on: function (e, cb) {
                 instance_1.elements.forEach(function (element) {
-                    element.addEventListener(e, function () {
-                        cb(element);
+                    element.addEventListener(e, function (event) {
+                        cb(event);
                     });
                 });
                 return instance_1;
@@ -51,7 +51,28 @@ var $ = function (arg) {
                     el.setAttribute(args[0], args[1]);
                 });
                 return instance_1;
-            }
+            },
+            hide: function (duration, easing, delay) {
+                if (duration === void 0) { duration = 1; }
+                if (easing === void 0) { easing = "ease-in-out"; }
+                if (delay === void 0) { delay = 1; }
+                instance_1.elements.forEach(function (el) {
+                    el.style.transition = "".concat(duration, "s ").concat(easing, " ").concat(delay, "s");
+                    el.style.display = "none";
+                    el.style.opacity = "0";
+                });
+            },
+            show: function (duration, easing, delay) {
+                if (duration === void 0) { duration = 1; }
+                if (easing === void 0) { easing = "ease-in-out"; }
+                if (delay === void 0) { delay = 1; }
+                instance_1.elements.forEach(function (el) {
+                    el.style.transition = "".concat(duration, "s ").concat(easing, " ").concat(delay, "s");
+                    el.style.display = "block";
+                    el.style.opacity = "1";
+                });
+            },
+            toggleClass: function () { }
         };
         return instance_1;
     }
